@@ -28,11 +28,11 @@ public class Fan {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public int getSpeed() {
-        return speed;
+        return this.speed;
     }
 
     public void setSpeed(int speed) {
@@ -40,7 +40,7 @@ public class Fan {
     }
 
     public boolean isOn() {
-        return on;
+        return this.on;
     }
 
     public void setOn(boolean on) {
@@ -48,7 +48,7 @@ public class Fan {
     }
 
     public double getRadius() {
-        return radius;
+        return this.radius;
     }
 
     public void setRadius(double radius) {
@@ -56,7 +56,7 @@ public class Fan {
     }
 
     public String getColor() {
-        return color;
+        return this.color;
     }
 
     public void setColor(String color) {
@@ -66,9 +66,9 @@ public class Fan {
     @Override
     public String toString() {
         if (on) {
-            return "Fan [id=" + id + ", speed=" + speed + ", color=" + color + ", radius=" + radius + "]";
+            return "Fan [id=" + this.id + ", speed=" + this.speed + ", color=" + this.color + ", radius=" + this.radius + "]";
         } else {
-            return "Fan [id=" + id + ", color=" + color + ", radius=" + radius + ", fan is off]";
+            return "Fan [id=" + this.id + ", color=" + this.color + ", radius=" + this.radius + ", fan is off]";
         }
     }
 }
