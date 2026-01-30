@@ -5,27 +5,23 @@ public class CSclasses {
     public static void main(String[] args) {
         ArrayList<Course> courses = new ArrayList<>();
 
-        InPersonCourse inPerson = new InPersonCourse(101);
-        inPerson.setCourseNumber("CS101");
-        inPerson.setNumStudents(25);
-        inPerson.setMaxStudents(30);
-        inPerson.setCredits(3);
+        InPersonCourse inPerson = new InPersonCourse("CS101", 25, 30, 3, 119);
 
         FullRemoteCourse fullRemote = new FullRemoteCourse(
+            "CS202",
+            50,
+            60,
+            4,
             "instructor@example.com"
         );
-        fullRemote.setCourseNumber("CS202");
-        fullRemote.setNumStudents(50);
-        fullRemote.setMaxStudents(60);
-        fullRemote.setCredits(4);
 
         RealtimeRemoteCourse realtimeRemote = new RealtimeRemoteCourse(
+            "CS303",
+            35,
+            40,
+            3,
             "zoom.us/123456789"
         );
-        realtimeRemote.setCourseNumber("CS303");
-        realtimeRemote.setNumStudents(35);
-        realtimeRemote.setMaxStudents(40);
-        realtimeRemote.setCredits(3);
 
         courses.add(inPerson);
         courses.add(fullRemote);

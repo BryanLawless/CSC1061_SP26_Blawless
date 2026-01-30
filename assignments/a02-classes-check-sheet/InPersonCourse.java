@@ -2,8 +2,14 @@ public class InPersonCourse extends Course {
 
     private int roomNumber;
 
-    public InPersonCourse(int roomNumber) {
-        super();
+    public InPersonCourse(
+        String courseNumber,
+        int numStudents,
+        int maxStudents,
+        int credits,
+        int roomNumber
+    ) {
+        super(courseNumber, numStudents, maxStudents, credits);
         this.roomNumber = roomNumber;
     }
 
