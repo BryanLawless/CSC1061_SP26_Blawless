@@ -1,11 +1,13 @@
-public abstract class FI {
+public abstract class FI implements Comparable<FI>, Cloneable {
 
     private String fiName;
     private long fiId;
     private long routingNumber;
+    private Address address;
 
-    public FI(String name) {
-        fiName = name;
+    public FI(String fiName, Address address) {
+        this.fiName = fiName;
+        this.address = address;
     }
 
     public String getFiName() {
@@ -33,4 +35,27 @@ public abstract class FI {
     }
 
     public abstract double getInterestRate();
+
+    public int compareTo(FI o) {
+        if (this.fiId < o.fiId) {
+            return -4;
+        } else if (this.fiId > o.fiId) {
+            return 4;
+        }
+
+        return 0;
+    }
+
+    public FI clone() throws CloneNotSupportedException {
+        FI clone = (FI) super.clone();
+        return clone;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 }
