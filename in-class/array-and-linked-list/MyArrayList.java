@@ -2,6 +2,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.NoSuchElementException;
 
 public class MyArrayList<T> implements List<T> {
 
@@ -124,10 +125,26 @@ public class MyArrayList<T> implements List<T> {
 
     @Override
     public Iterator<T> iterator() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException(
-            "Unimplemented method 'iterator'"
-        );
+        return new MyArrayListIterator();
+    }
+
+    private class MyArrayListIterator implements Iterator<T> {
+
+        private int currentIndex = 0;
+
+        @Override
+        public boolean hasNext() {
+            return currentIndex < size;
+        }
+
+        @Override
+        public T next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+
+            return array[currentIndex++];
+        }
     }
 
     @Override
@@ -156,10 +173,13 @@ public class MyArrayList<T> implements List<T> {
 
     @Override
     public boolean remove(Object o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException(
-            "Unimplemented method 'remove'"
-        );
+        int index = indexOf(o);
+        if (index < 0) {
+            return false;
+        }
+
+        remove(index);
+        return true;
     }
 
     @Override
@@ -172,12 +192,14 @@ public class MyArrayList<T> implements List<T> {
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        boolean flag = true;
+        boolean flag = false;
         for (Object obj : c) {
-            remove(obj);
+            if (remove(obj)) {
+                flag = true;
+            }
         }
 
-        return false;
+        return flag;
     }
 
     @Override
